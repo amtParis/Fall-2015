@@ -13,3 +13,8 @@ Simple grid out of square
 
 Due to Sept 10th
 Building arrays for numbers, based on the illustrator example.
+
+
+<b>Sept 10th</b>
+
+By group, decode the hidden js sentence.
