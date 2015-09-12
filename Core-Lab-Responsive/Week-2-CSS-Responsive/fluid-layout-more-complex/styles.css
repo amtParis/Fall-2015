@@ -94,6 +94,7 @@ label{
 	background-color: lightgray;
 	background-image: url('http://placebear.com/1280/300');
 	background-position: center center;
+	background-repeat: no-repeat;
 	min-height: 250px;
 }
 
