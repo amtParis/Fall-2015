@@ -1,5 +1,5 @@
 map() function
-http://processing.org/reference/_map.html
+http://processing.org/reference/map_.html
 
 Re-maps a number from one range to another.
 
@@ -17,6 +17,7 @@ Ex : map(5, 0, 10, 0, 500) will return 250
 -------------------
 
 boolean type : used to store a value being true or false (ON/OFF)
+http://processing.org/reference/boolean.html
 
 How to invert a boolean value :
 
