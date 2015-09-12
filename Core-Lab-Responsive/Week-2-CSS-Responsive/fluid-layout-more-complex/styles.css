@@ -1,0 +1,184 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: Varela Round,arial,sans-serif;
+	font-size: 10px;
+	color: darkgray;
+}
+
+ul, li, p{
+	margin: 0;
+	padding: 0;
+}
+
+p{ font-size: 1.5em; }
+
+a{ 
+	color: #666;
+	text-decoration: none;
+}
+
+/* --------------- Header */
+header{
+	text-align: center;
+}
+
+h1.page-title {
+	/* Site title */
+	font-size: 5.5em;
+	line-height: .5em;
+	font-weight: lighter;
+	text-transform: lowercase;
+	letter-spacing: 1.5px;
+	font-family: "Great Vibes";
+}
+
+
+/* --------------- Top Navigation  */
+#menu-label{
+	display: none;	/* Hide menu label for small screens */
+	font-size: 1.5em;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+input[type=checkbox]{
+    display: none;	/* Hide checkbox that lets menu toggle */
+}
+
+label{
+	display: block;
+}
+
+#top-nav{
+	margin: 20px 0 30px 0;
+}
+
+#top-nav a{
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 1.2em;
+	text-decoration: none;
+}
+
+#top-nav a:hover{
+	border-bottom: 1px solid #ededed;
+	border-top: 1px solid #ededed;
+}
+
+#top-nav ul{
+	list-style-type: none;
+}
+
+#top-nav li{
+	display: inline-block;
+	margin-left: 30px;
+}
+
+#top-nav li:first-child{
+	margin-left: 0px;
+}
+
+
+
+/* --------------- Sections */
+#main-content{
+	padding: 20px 0;
+}
+
+#main-image{
+	background-color: lightgray;
+	background-image: url('http://placebear.com/1280/300');
+	background-position: center center;
+	min-height: 250px;
+}
+
+#entries{
+	margin: 20px 40px 50px 20px;
+}
+
+article{
+	padding: 0 30px;
+	margin-bottom: 60px;
+}
+
+article h3{
+	color: #333;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+/* --------------- Footer */
+footer{
+	margin-top: 40px;
+	display: block;
+	clear: both;
+	color: #888;
+}
+
+footer p{
+	padding: 20px 0;
+	background-color: #ededed;
+	width: 100%;
+}
+
+/* --------------- Columns */
+[class*='col-']{
+	float: left;
+}
+.col-1{ width: 16.66%;}
+.col-2{ width: 33.33%;}
+.col-3{ width: 50%;}
+.col-4{ width: 66.66%;}
+.col-5{ width: 83.33%;}
+.col-6{ width: 100%;}
+
+
+
+/* --------------- Media Queries */
+
+/* Tablet */
+@media screen and (max-width: 750px){
+	
+	/* Sets all column selectors */
+	[class*='col-']{
+		width: 100%;
+	}
+}
+/* Mobile */
+@media screen and (max-width: 400px){
+	
+
+	h1.page-title{
+		margin: 10px 0 10px 0;
+	} 
+
+	#main-image{
+		min-height: 200px;
+	}
+
+	input[type=checkbox]:checked ~ #menu-list{
+    	display: block;
+    	border-top: 1px solid #ededed;
+	}
+
+	#menu-list{
+		display: none;
+	}
+
+	#menu-label{
+		display: block;
+	}
+
+	#top-nav li{
+		display: block;
+		margin: 5px 0 0 0;
+	}
+
+	
+}

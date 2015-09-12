@@ -1,0 +1,91 @@
+*{
+  box-sizing: border-box;
+
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+p{
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+
+#page{
+	margin: 0 auto;
+	max-width: 960px;
+}
+
+/* --------------------- Fluid layout styles */
+#top-nav{
+	width: 100%;
+	padding: 10px;
+}
+
+section, aside, article{
+	width: 100%;
+	float: left;
+}
+
+aside{
+	padding: 0 20px;
+}
+
+section{
+	padding: 10px;
+}
+
+
+/* --------------------- Navigaton styles */
+#top-nav{
+	font-size: 1em;
+	text-align: center;
+	background-color: lightsteelblue;
+	color: white;
+}
+
+#top-nav h1{
+	font-weight: lighter;
+}
+
+/* --------------------- Main Content Styles */
+#main-content{
+	padding: 20px;
+}
+
+section p{
+	font-weight: lighter;
+	line-height: 1.2em;
+	margin-bottom: 20px;
+}
+
+/* --------------------- Sidebar Styles */
+aside ul{
+	list-style-type: none;
+	padding: 0;
+	font-weight: lighter;
+}
+
+aside ul li{
+	margin-bottom: 8px;
+}
+
+/* --------------------- Link Styles */
+a{
+	color: gray;
+}
+
+/* --------------------- Media  Queries */
+@media screen and (min-width: 600px){
+	section{
+		width: 70%;
+	}
+
+	aside{
+		width: 30%;
+		padding-top: 20px;
+	}
+}
