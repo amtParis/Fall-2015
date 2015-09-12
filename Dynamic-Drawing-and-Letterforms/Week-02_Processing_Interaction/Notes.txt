@@ -1,0 +1,53 @@
+map() function
+http://processing.org/reference/_map.html
+
+Re-maps a number from one range to another.
+
+1st argument : variable
+2nd argument : the lowest possible value for this variable
+3rd argument : the hightest possible value for this variable
+4th argument : the lowest possible value in the target range
+5th argument : the highest possible value in the target range
+
+Ex : map(5, 0, 10, 0, 500) will return 250 
+1 : where is  5 located in the 0<->10 range ? => In the middle
+2 : what is the middle of the 0<->500 range ? => 250
+
+
+-------------------
+
+boolean type : used to store a value being true or false (ON/OFF)
+
+How to invert a boolean value :
+
+// Extended version
+
+boolean bool = false;
+
+if (bool == true) {
+    bool = false;
+}
+else {
+    bool = true;
+}
+
+// Shorter
+
+boolean bool = false;
+
+if (bool) {
+    bool = false;
+}
+else {
+    bool = true;
+}
+
+// Super short
+
+int bool = false;
+
+bool = !bool; // !bool means "not" bool. Then "not false" equals true and "not true" equals false 
+
+
+
+
