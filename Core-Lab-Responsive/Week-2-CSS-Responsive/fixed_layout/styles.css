@@ -3,11 +3,16 @@
 }
 
 body{
-	margin: 0;
+	margin: 0 auto;
 	padding: 0;
+	width: 960px;
+
+	border-left: 1px solid #ededed;
+	border-right: 1px solid #ededed;
 	font-family: Varela Round,arial,sans-serif;
 	font-size: 10px;
 	color: darkgray;
+	
 }
 
 ul, li, p{
@@ -46,16 +51,9 @@ h1.page-title {
 	letter-spacing: 2px;
 }
 
-input[type=checkbox]{
-    display: none;	/* Hide checkbox that lets menu toggle */
-}
-
-label{
-	display: block;
-}
-
 #top-nav{
-	margin: 20px 0 30px 0;
+	margin: 0px 0 30px 0;
+	padding: 20px 0;
 }
 
 #top-nav a{
@@ -99,11 +97,11 @@ label{
 }
 
 #entries{
-	margin: 20px 40px 50px 20px;
+	margin: 20px 0px 50px 28px;
 }
 
 .entry{
-	padding: 0 30px;
+	padding: 0 20px;
 	margin-bottom: 60px;
 	text-align: left;
 }
@@ -114,6 +112,7 @@ label{
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	text-align: center;
+
 }
 
 /* --------------- Footer */
@@ -134,54 +133,11 @@ footer p{
 [class*='col-']{
 	float: left;
 }
-.col-1{ width: 16.66%;}
-.col-2{ width: 33.33%;}
-.col-3{ width: 50%;}
-.col-4{ width: 66.66%;}
-.col-5{ width: 83.33%;}
-.col-6{ width: 100%;}
+.col-1{ width: 150px;}
+.col-2{ width: 300px;}
+.col-3{ width: 450px;}
+.col-4{ width: 600px;}
+.col-5{ width: 750px;}
+.col-6{ width: 900px;}
 
 
-
-/* --------------- Media Queries */
-
-/* Tablet */
-@media screen and (max-width: 750px){
-	
-	/* Sets all column selectors */
-	[class*='col-']{
-		width: 100%;
-	}
-}
-/* Mobile */
-@media screen and (max-width: 400px){
-	
-
-	h1.page-title{
-		margin: 10px 0 10px 0;
-	} 
-
-	#main-image{
-		min-height: 200px;
-	}
-
-	input[type=checkbox]:checked ~ #menu-list{
-    	display: block;
-    	border-top: 1px solid #ededed;
-	}
-
-	#menu-list{
-		display: none;
-	}
-
-	#menu-label{
-		display: block;
-	}
-
-	#top-nav li{
-		display: block;
-		margin: 5px 0 0 0;
-	}
-
-	
-}
