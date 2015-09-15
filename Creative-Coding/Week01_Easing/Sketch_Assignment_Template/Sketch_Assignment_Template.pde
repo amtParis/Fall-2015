@@ -13,7 +13,7 @@ import de.looksgood.ani.easing.*;
 
 // Two samples of easing functions
 CustomEasing customEasing1 = CustomEasing.create("customEasing1", "[{s:0,cp:0.383,e:0.644},{s:0.644,cp:0.905,e:1.044},{s:1.044,cp:1.183,e:1.012},{s:1.012,cp:0.841,e:1}]");
-CustomEasing customEasing2 = CustomEasing.create("myCustomEase3", "[{s:0,cp:-0.153,e:-0.08},{s:-0.08,cp:-0.007,e:0.29199},{s:0.29199,cp:0.591,e:-0.084},{s:-0.084,cp:-0.759,e:0.24},{s:0.24,cp:1.239,e:0.076},{s:0.076,cp:-1.087,e:0.28399},{s:0.28399,cp:1.655,e:0.78},{s:0.78,cp:-0.095,e:1}]");
+CustomEasing customEasing2 = CustomEasing.create("myCustomEase2", "[{s:0,cp:-0.153,e:-0.08},{s:-0.08,cp:-0.007,e:0.29199},{s:0.29199,cp:0.591,e:-0.084},{s:-0.084,cp:-0.759,e:0.24},{s:0.24,cp:1.239,e:0.076},{s:0.076,cp:-1.087,e:0.28399},{s:0.28399,cp:1.655,e:0.78},{s:0.78,cp:-0.095,e:1}]");
 
 // The Ani library built-in funtions can be previewed here (with an approaching naming):
 // http://hosted.zeh.com.br/tweener/docs/en-us/misc/transitions.html
