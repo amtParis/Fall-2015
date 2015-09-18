@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Open Close Windows</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="open close windows">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	<body>
+	</body>
+
+	<script>
+
+	 	var waterWin = window.open("water.html","-","width=600,height=200,top=500,left=200,scrollbars=no");
+	 	var mtsWin = window.open("mts.html","--","width=600,height=150,top=300,left=200,scrollbars=no");
+	 	var skyWin = window.open("sky.html","---","width=600,height=150,top=100,left=200,scrollbars=no");
+
+	 	function close_window(win){
+	 		//win.close();
+	 	}
+
+	 	setInterval(function() { close_window(waterWin); },2000);
+	 	setInterval(function() { close_window(mtsWin); },2200);
+	 	setInterval(function() { close_window(skyWin); },2400);
+
+
+	</script>
+</html>

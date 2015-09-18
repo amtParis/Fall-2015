@@ -1,0 +1,44 @@
+*{
+box-sizing: border-box;	
+}
+body,div{
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden; 
+	font-family: Arial;
+	font-size: 20px;
+}
+
+body{
+	height: 2000px;
+}
+
+#text-out-top{
+	margin: 30px auto;
+	padding: 20px;
+	width: 30%;
+	border: 1px solid black;
+	border-radius: 10px;
+	text-align: center;
+}
+
+#text-from-left{
+	width: 100%;
+	position: fixed;
+	top: 50%;
+	left:100%;
+	text-align: center;
+	
+}
+
+#text-from-fade{
+	width: 30%;
+	margin: 0px auto;
+	padding: 20px; 
+	position: fixed;
+	top: 50%;
+	left: 35%;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 10px;
+}

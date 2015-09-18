@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Parallax Scroll</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="parallax">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	</head>
+	<body>
+
+	<main id="main-content" role="main">
+
+		<!-- Backgrounds //-->
+		<div id="bg-1" data-type="background" data-speed="2"></div>
+		<div id="bg-2" data-type="background" data-speed=".5"></div>
+		<div id="bg-3" data-type="background" data-speed=".5"></div>
+
+		<!-- Black Background //-->
+		<div id="black-mts" data-type="" data-speed="1">
+			<p></p>
+		</div>
+
+		<!-- Star Circles //-->
+		<div id="stars" >
+			<p  data-type="background" data-speed=".5" class="animation-element">
+				<span id="circle"></span>
+			</p>
+		</div>
+
+	</main>
+
+	<script src="scroll.js"></script>
+
+	</body>
+</html>

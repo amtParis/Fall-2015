@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Title</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="some project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<style>
+			
+			body,div{
+				margin:0;
+				padding:0;
+			}
+			body{
+
+				background-color: lightblue;
+			}
+
+			#water{
+				height: 200px;
+				width: 100%;
+				background-image: url("images/waves.jpg");
+				background-position: 0 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="water"></div>
+	</body>
+
+	<script>
+	var bPos = 0;
+	function repeatOften() {
+  	// Do whatever
+  	bPos+=.1;
+  	var yPos = -90 + 2*Math.sin(bPos);
+  	var pos = "0px " + yPos + "px";
+  	//console.log(bPos);
+  	document.getElementById("water").style.backgroundPosition = pos;
+  	requestAnimationFrame(repeatOften);
+	}	
+	requestAnimationFrame(repeatOften);
+
+
+	</script>
+</html>

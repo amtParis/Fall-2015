@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Title</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="some project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<style>
+			
+			@-webkit-keyframes backgroundScroll {
+				from { background-position: -600px bottom;}
+				to { background-position: 0 bottom;}
+			}
+
+			@-moz-keyframes backgroundScroll {
+				from { background-position: -600px bottom;}
+				to { background-position: 0 bottom;}
+			}
+
+			@-o-keyframes backgroundScroll {
+				from { background-position: -600px bottom;}
+				to { background-position: 0 bottom;}
+			}
+
+			@keyframes backgroundScroll {
+				from { background-position: -600px bottom;}
+				to { background-position: 0 bottom;}
+			}	
+
+			body,div{
+				margin:0;
+				padding:0;
+			}
+			body{
+				background-color: pink;
+			}
+
+			#sky{
+				height: 200px;
+				width: 100%;
+				background-image: url("images/Sea_and_sky_light.jpg");
+				background-position: center 80%;
+			}
+			#clouds{
+				height: 200px;
+				width: 100%;
+				background-image: url("images/clouds.png");
+				background-position: center center;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;
+				-webkit-animation: backgroundScroll 40s linear infinite;
+				-moz-animation: backgroundScroll 40s linear infinite;
+				-o-animation: backgroundScroll 40s linear infinite;
+				animation: backgroundScroll 40s linear infinite;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="sky"></div>
+	<div id="clouds"></div>
+		
+	</body>
+</html>
