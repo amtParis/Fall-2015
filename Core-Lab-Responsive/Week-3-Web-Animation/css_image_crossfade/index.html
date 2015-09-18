@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Image fade</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="some project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+
+		<style>
+		.container{
+			position: relative;
+		}
+		img{
+			position: absolute;
+			top:0;
+			left:0;
+
+		}
+		img.top{
+			opacity: 1;
+			transition: opacity 2s;
+		}
+		img.top:hover{
+			opacity: 0;
+		}
+
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<img class="bottom" src="bear.jpg">
+  			<img class="top" src="wolf.jpg">
+		</div>
+	</body>
+</html>

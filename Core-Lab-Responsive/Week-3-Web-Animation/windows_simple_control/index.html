@@ -16,14 +16,10 @@
 	 	var mtsWin = window.open("mts.html","--","width=600,height=150,top=300,left=200,scrollbars=no");
 	 	var skyWin = window.open("sky.html","---","width=600,height=150,top=100,left=200,scrollbars=no");
 
-	 	function close_window(win){
-	 		//win.close();
-	 	}
-
-	 	setInterval(function() { close_window(waterWin); },2000);
-	 	setInterval(function() { close_window(mtsWin); },2200);
-	 	setInterval(function() { close_window(skyWin); },2400);
-
+	 	setTimeout(function(){ waterWin.close() },4200);
+	 	setTimeout(function(){mtsWin.close() },5200);
+	 	setTimeout(function(){skyWin.close() },6200);
+		
 
 	</script>
 </html>

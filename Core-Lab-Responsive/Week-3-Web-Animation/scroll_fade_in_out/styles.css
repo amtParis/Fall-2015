@@ -14,6 +14,7 @@ body, div, p{
 	font-family: Montserrat, sans-serif;
 	font-size: 5vw;
 
+	-webkit-transition: background-color 2s, color 2s;
 	transition: background-color 2s, color 2s;
 }
 
@@ -42,15 +43,24 @@ body, div, p{
 	color: white;
 }
 
+@-webkit-keyframes fadeOut {
+    from {color: white;}
+    to {color: black;}
+}
+
 @keyframes fadeOut {
     from {color: white;}
     to {color: black;}
 }
 
 #part-6 .in-view{
-	animation-name: fadeOut;
-    animation-duration: 4s;
-    animation-delay: 3s;
-    animation-fill-mode: forwards;
+	-webkit-animation-name: fadeOut;
+	        animation-name: fadeOut;
+    -webkit-animation-duration: 4s;
+            animation-duration: 4s;
+    -webkit-animation-delay: 3s;
+            animation-delay: 3s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
 }
 

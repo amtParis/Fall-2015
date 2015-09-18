@@ -1,0 +1,51 @@
+body, div, p{
+	margin:0;
+	padding:0;
+	background-color: none;
+}
+
+#main-content > div{
+	font-family: Montserrat, sans-serif;
+	font-size: 5vw;
+}
+
+#main-content p{
+	width: 80%;
+	margin: 0 auto;
+}
+
+#part-1, #part-2{
+	margin-top: 200px;
+	margin-bottom: 600px;
+}
+
+@keyframes moveMe{
+
+	from { transform: translateX(0px) ;}
+	to { transform: translateX(200px) }
+}
+
+@keyframes rotateMe{
+
+	from { transform: rotate(0deg) ;}
+	to { transform: rotate(359deg) }
+}
+
+#part-1 p, #part-2 p{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+}
+
+#part-1.in-view{
+	animation: moveMe 2s ease-in-out 1s 4 alternate;
+	animation-fill-mode: both;
+}
+
+#part-2.in-view{
+	animation: rotateMe 3s linear 0s infinite;
+	animation-fill-mode: both;
+}
+
+
+

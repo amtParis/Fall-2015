@@ -1,0 +1,37 @@
+body, div, p{
+	margin:0;
+	padding:0;
+	background-color: none;
+}
+
+#main-content{
+	background-image: url('images/orange_gradient.png');
+	background-repeat: repeat-x;
+}
+
+#main-content > div{
+	font-family: Montserrat, sans-serif;
+	font-size: 5vw;
+}
+
+#main-content p{
+	width: 80%;
+	margin: 0 auto;
+}
+
+#part-1, #part-2, #part-3, #part-4, #part-5{
+	min-height: 800px;
+}
+
+#part-1 {
+	padding-top: 200px;
+}
+
+#part-6{
+	padding-bottom: 200px;
+}
+
+.animation-element{
+
+}
+

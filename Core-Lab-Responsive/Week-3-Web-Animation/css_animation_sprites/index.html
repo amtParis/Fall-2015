@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Animation CSS Sprites</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="sprites animation">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+
+		<style>
+			/* For sprite animation just us 100% with the position at the negative total width*/
+			@keyframes spriteAnimation{
+				   100% { background-position: -710px; }
+			}
+
+			.sprite,.sprite-2{
+				background-image: url("henson.png");
+				width: 115px;
+				height: 115px;
+			}
+
+			.sprite{
+				animation: spriteAnimation .8s steps(6) infinite;
+			}
+
+			.sprite-2:hover{
+				animation: spriteAnimation .8s steps(6) infinite;
+			}
+		</style>
+
+	</head>
+	<body>
+		<p>This is a css sprite animation (it is not a gif):</p>
+		<div class="sprite"></div>
+		<p>Try me with hover:</p>
+		<div class="sprite-2"></div>
+		<p>Here is the orginal. It is one large image that is moved in steps to animate.</p>
+		<img src="henson.png">
+		<p>Learn more <a href="http://blog.teamtreehouse.com/css-sprite-sheet-animations-steps">here</a></p>
+	</body>
+</html>
