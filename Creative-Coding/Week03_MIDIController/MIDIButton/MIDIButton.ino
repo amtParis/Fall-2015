@@ -1,3 +1,8 @@
+//
+// To see how to connect a button using pull up, refer to:
+// https://www.arduino.cc/en/Tutorial/DigitalInputPullup
+//
+
 #include <MIDI.h>
 #define BUTTON_1 2 // Assign BUTTON_1 to pin 2
 

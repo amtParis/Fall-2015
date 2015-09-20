@@ -1,3 +1,9 @@
+//
+// To see how to connect a potentiometer, refer to :
+// https://www.arduino.cc/en/Tutorial/Potentiometer
+//
+
+
 #include <MIDI.h>
 
 #define CHANNEL 1 // We'll use channel 1
