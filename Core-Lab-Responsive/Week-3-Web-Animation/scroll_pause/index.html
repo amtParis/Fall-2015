@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pause while scrolling</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="some project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+		<style>
+		body{
+			height: 3000px;
+			background: url('images/symphony.png') 0 0 repeat;
+		}
+
+		.pauseText{
+			width: 60%;
+			position: fixed;
+			top: 100%;
+			left: 20%;
+		}
+
+		p{			
+			width: 60%;
+			padding: 2%;
+			margin: 0 auto;
+			
+			font-size: 120%;
+			font-weight: lighter;
+			text-align: center;
+			line-height: 1.25em;
+
+			background-color: white;
+			border-radius: 10px;
+			border: 1px solid #ededed;
+		}
+
+		p.offset{
+			margin-top: 2000px;
+		}
+		</style>
+	</head>
+	<body>
+		<div>
+			<p>Some stuff at the top.</p>
+		</div>
+
+		<div class="pauseText" data-type="pause" data-start="200" data-duration="500">
+			<p>Ths text sticks here for a while. It is not in the normal document flow. Its position is fixed and js controls when it animates in and out based on scroll position.</p>
+		</div>
+
+		<div>
+			<p class="offset">This text is in normal page flow, and is offset with a top margin.</p>
+		</div>
+
+		<script>
+
+		var $window = $(window);	
+
+		$window.on('scroll', do_scroll);
+		$window.on('scroll resize', do_scroll);
+		$window.trigger('scroll');
+
+		function do_scroll() {
+				
+			var window_height = $window.height();
+			var window_top_position = $window.scrollTop();
+			var window_bottom_position = (window_top_position + window_height);
+			var window_half_height = window_height*.5;
+
+			console.log( window_top_position);
+
+			$('*[data-type="pause"]').each(function(){
+		        
+		        var $element = $(this);
+        		var element_height = $element.height();
+		       	var element_top_position = $element.offset().top;
+		       	var duration = $element.data('duration');
+				var startPosition = $element.data('start');
+		       	var endPosition = startPosition + duration*2;
+
+		      	var window_half_height = (window_height+element_height*2)*.5;
+
+		       
+		       if(window_top_position <= endPosition ){
+					
+					var pos = (window_top_position-startPosition) / duration;
+					pos = Math.min(pos,1);
+					pos = Math.max(pos,0);
+					pos *= window_half_height;
+					pos = window_height - pos;
+					$element.css('top',pos+"px");
+				
+				}else if(window_top_position  > endPosition){
+					
+					var pos = (window_top_position-endPosition) / duration;
+					pos = Math.min(pos,1);
+					pos = Math.max(pos,0);
+					pos *= window_half_height;
+					pos += window_half_height;
+					pos = window_height - pos;
+					$element.css('top',pos+"px");
+		    }
+		});
+
+			
+
+		}	
+		</script>
+	</body>
+</html>

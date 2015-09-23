@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tiled Background</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="some project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+	</head>
+
+	<style>
+	
+	body{
+		height: 100%;
+	}
+	body,div{
+		margin: 0;
+		padding: 0;
+	}
+
+	/* The background pattern for the whole page */
+	.bg-tiled{
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 1000px;
+		background: url('images/symphony.png') 0 0 repeat; 
+	}
+	
+	/* The black background that will overlay everything later
+		Starts with opacity 0 and z-index behind everything so does not block clicks */
+	.blackOut{
+		opacity: 0;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		bottom:0;
+		z-index: -200;
+		background-color:black; 
+		transition: opacity 3s;
+
+	}
+
+	/* The cloud background that will fade in over the black.
+		Starts behnd at opacity 0 and without full height so scrolling initially does not go beyond door */
+	.insideScene{
+		opacity: 0;
+		position: absolute;
+		width: 100%;
+		top: 500px;
+		z-index: -201;
+		background: url('images/clouds.png') 0 0 repeat; 
+		min-height: 500px;
+		transition: opacity 2s ease 3s, min-height 2s ease 3s;
+	}
+	
+	#part-1,#part-2{
+		min-height: 500px;
+		text-align: center;
+		padding:10px;
+	}
+
+	#door{
+		width: 200px;
+		height: 400px;
+		background-color: gray;
+		margin:0 auto;
+		cursor: pointer; /* shows mouse pointer even though it is not a "real" link */
+	}
+
+	
+	
+	
+	</style>
+
+	<body>
+
+		<div class="blackOut"></div>
+		<div class="insideScene"></div>
+
+		<div class="bg-tiled" data-type="background" data-speed=".8">
+			
+			<div id="part-1">
+				Top part
+			</div>
+
+			<div id="part-2">
+				<div id="door">Click Door</div>
+			</div>
+
+	
+		</div>
+		
+		
+
+		<script>
+
+		/* Make the fade to black and fade in clouds */
+		
+		$("#door").click( function(){
+			console.log("click");
+			$(".blackOut").css({"opacity": "1","z-index":"200"});
+			$(".insideScene").css({"opacity": "1","z-index":"201","min-height":"1500px"});
+		});
+
+
+		
+
+		/* Background scrolling controlled here for any element with data-type=background */
+
+		var $window = $(window);	
+
+		$window.on('scroll', do_scroll);
+		$window.on('scroll resize', do_scroll);
+		$window.trigger('scroll');
+
+		function do_scroll() {
+				
+			$('*[data-type="background"]').each(function(){
+		        
+		        var $bgobj = $(this); // assigning the object
+		        var $element = $(this);
+        		var height = $element.height();
+        		var velocity = $bgobj.data('speed');
+		        var pos = $window.scrollTop();
+		        var backgroundPos = $element.css('backgroundPosition').split(" ");
+		        var xPos = "0px ";//backgroundPos[0];
+		        var coords = xPos + Math.round((height - pos) * velocity) + 'px';
+
+        		$bgobj.css({ backgroundPosition: coords });
+		    
+		    });
+
+
+		}	
+		</script>
+
+	</body>
+</html>

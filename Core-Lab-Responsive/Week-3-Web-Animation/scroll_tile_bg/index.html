@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tiled Background</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="some project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+	</head>
+
+	<style>
+	
+	body{
+		height: 2048px;
+	}
+	body,div{
+		margin: 0;
+		padding: 0;
+	}
+
+	h3{
+		font-weight: normal;
+		line-height: 1.5em;
+	}
+
+	/* The background pattern for the whole page */
+	.bg-tiled{
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 2048px;
+		background: url('images/symphony.png') 0 0 repeat; 
+	}
+	
+	#part-1,#part-3{
+		padding: 2%;
+		margin: 20% 20% 0 20%;
+		background-color: rgba(255,255,255,.5);
+	}
+
+	#part-3{
+		margin: 20% 0 0 0;
+	}
+	
+	#part-2{
+		position: relative;	/* Use relative positioning so overlayed animations work */
+		height: 800px;
+	}
+
+	#box-1, #box-2{
+		width: 200px;
+		height: 100px;
+		position: absolute;
+		left: 50%;
+		margin: 0 0 0 -100px;
+		top: 800px;
+		background-color: lightgray;
+		box-shadow: 0px 5px 5px #C3C3C3;
+	}
+
+	#box-2{
+		left: 50px;
+		margin: 0;
+	}
+
+	.sparkle{
+		width: 320px;
+		height: 800px;
+		background: url('images/sparkle.png') 0 0 repeat-y; 
+		position: absolute;
+		opacity: 0; /* starts out as transparent */
+		transition: opacity 2s ease-in;	/* Lets us trigger the fade in of the smoke */
+	}
+
+	#sparkle-1,#sparkle-2{
+		/* this keeps the smoke-sparkles centered in its container */
+		margin-left: -150px;
+		left: 50%;
+	}
+	
+	/* offset the second smoke overlay so not ontop of each other exactly*/
+	#sparkle-2{
+		top: 50px;
+	}
+
+	/* Animation for left side spakle-smoke. For infinite loop background image, 
+	the to is the negative height (or width) of the image */
+	@keyframes bg{
+		from{background-position: 0px 0px}
+		to{background-position: 0px -320px}
+	}
+	
+	/* Set animations */
+	#sparkle-3{
+		animation: bg 3s linear infinite;
+		animation-fill-mode: both;
+	}
+
+	#sparkle-4{
+		animation: bg 2s linear infinite;
+		animation-fill-mode: both;
+	}
+
+	</style>
+
+	<body>
+
+		<div class="bg-tiled" data-type="background" data-speed=".8">
+			
+			<div id="part-1">
+				<h3>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</h3>
+			</div>
+
+			<div id="part-2">
+				<div id="sparkle-1" class="sparkle" data-type="background" data-speed="4"></div>
+				<div id="sparkle-2"  class="sparkle" data-type="background" data-speed="2"></div>
+				<div id="box-1"></div>
+
+				<div id="sparkle-3" class="sparkle" data-type="ackground" data-speed="4"></div>
+				<div id="sparkle-4"  class="sparkle" data-type="ackground" data-speed="2"></div>
+				<div id="box-2"></div>
+			</div>
+
+			<div id="part-3">
+				<h3>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</h3>
+			</div>
+
+			</div>
+
+	
+		</div>
+		
+		<script>
+
+		var $window = $(window);	
+
+		$window.on('scroll', do_scroll);
+		$window.on('scroll resize', do_scroll);
+		$window.trigger('scroll');
+
+		function do_scroll() {
+				
+			/* Background scrolling controlled here for any element with data-type=background */
+			$('*[data-type="background"]').each(function(){
+		        
+		        var $bgobj = $(this); // assigning the object
+		        var $element = $(this);
+        		var height = $element.height();
+        		var velocity = $bgobj.data('speed');
+		        var pos = $window.scrollTop();
+		        var backgroundPos = $element.css('backgroundPosition').split(" ");
+		        var xPos = "0px ";//backgroundPos[0];
+		        var coords = xPos + Math.round((height - pos) * velocity) + 'px';
+
+        		$bgobj.css({ backgroundPosition: coords });
+		    
+		    });
+
+			/* Control fade in - out of smok-sparkes. 650 is position based on this case but could change as needed */
+			var top = $window.scrollTop();
+			console.log(top);
+
+		    if( top > 650 ){
+		    	$(".sparkle").css({"opacity":".75","transition":"opacity 3s"});
+		    }else{
+		    	$(".sparkle").css({"opacity":"0","transition":"opacity .5s"});
+		    }
+
+		}	
+		</script>
+
+	</body>
+</html>
