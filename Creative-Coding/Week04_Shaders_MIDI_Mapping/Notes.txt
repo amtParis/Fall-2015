@@ -1,0 +1,20 @@
+RWMIDI library for Processing 2.x
+http://www.dropbox.com/s/t4zcgpcbrnp34l7/rwmidi.zip?dl=0
+
+Receive MIDI 
+Check with a controller
+Define how to use the controller based on MIDI messages sent by the controller
+
+Modify the sketch to trigger events from the MIDI controller
+Control several parameters of a sketch with the controller
+
+Do the same with the VJing sketch
+
+Syphon library for Processing 2.x
+https://github.com/Syphon/Processing/releases
+
+
+
+Mapping softwares
+ie: Mad Mapper
+
