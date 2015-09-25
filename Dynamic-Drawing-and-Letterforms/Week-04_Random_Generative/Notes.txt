@@ -1,0 +1,62 @@
+Recap of the last 3 weeks
+
+
+comments, multilines comments, doc comments
+variables global/local
+variables types
+operators
+
+for loop
+while loop
+
+conditions
+relational operators
+logical operators
+
+array and arraylist
+iteration over arrays
+
+stuff of our own
+functions
+
+
+Processing specific
+
+setup and draw
+width and heigh
+events mouse/keyboard
+mouseX mouseY pmouseX pmouseY
+key
+drawing functions
+fonts
+images
+vectors
+
+* push & popMatrix
+
+
+Read code
+Combine code
+
+
+Randomness
+
+
+Controlled randomness
+Reproducible randomness
+
+Random walker
+Game
+
+Objects
+
+variables
+constructor
+methods
+class
+instanciate objects
+
+array of objects
+
+
+
