@@ -57,8 +57,8 @@ void setup() {
   for (int i=0; i<useShader.length; i++) {
     useShader[i] = false;
     useRandom[i] = false;
-    coef[i] = 0;
-    val1[i] = 0;
+    coef[i] = 0.1;
+    val1[i] = 0.1;
   }
 }
 

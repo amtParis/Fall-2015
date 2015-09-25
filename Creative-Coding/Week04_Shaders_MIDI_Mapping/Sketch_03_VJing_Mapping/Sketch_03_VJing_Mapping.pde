@@ -57,11 +57,10 @@ void setup() {
   for (int i=0; i<useShader.length; i++) {
     useShader[i] = false;
     useRandom[i] = false;
-    coef[i] = 0;
-    val1[i] = 0;
+    coef[i] = 0.1;
+    val1[i] = 0.1;
   }
 }
-
 
 void draw() {
   background(0);
@@ -80,37 +79,58 @@ void draw() {
 
       filter(shaders[i]);
     }
+    
+    
   }
 
   surface.setTitle(nf((int)frameRate, 2));
 }
 
-// Control Change received
-// We removed other methods since we only receive Control Change
+// Use the functions below to map MIDI messages to shaders parameters
+
+
+// Control Change recieved 
 void controllerChangeReceived(Controller cc) {
   println("Controller Change: Channel/" +  cc.getChannel() + " Number/" +cc.getCC() + " Value/" + cc.getValue() );
   
-  int ctrl = cc.getCC();
-  
-  if (ctrl >= 32 && ctrl <=39 && cc.getValue() == 127) { // S buttons
-    useShader[ctrl-32] = !useShader[ctrl-32];
-  }
-  
-  if (ctrl >= 64 && ctrl <=71 && cc.getValue() == 127) { // R buttons
-    useRandom[ctrl-64] = !useRandom[ctrl-64];
+  // Coef 1
+  if(cc.getCC() >= 16 && cc.getCC() <= 23) {
+   coef[cc.getCC()-16] =  map(cc.getValue(), 0, 127, 0, 1);
   }
 
-  if (ctrl >= 16 && ctrl <=23) { // Top knobs
-    coef[ctrl-16] = map(cc.getValue(), 0, 127, 0, 1);
-  }
-
-  if (ctrl >= 0 && ctrl <=7) { // Sliders
-    val1[ctrl] = map(cc.getValue(), 0, 127, 0, 1);
+  // Val 1
+  if(cc.getCC() >= 0 && cc.getCC() <= 7) {
+   val1[cc.getCC()] =  map(cc.getValue(), 0, 127, 0, 1);
   }
   
-  if (ctrl == 42 && cc.getValue() == 127) { // STOP button
-    for(int i=0; i<useShader.length; i++) {
-      useShader[i] = false;
+  // Use Shader Press twice to toggle
+  if((cc.getCC() >= 32 && cc.getCC() <= 39) && cc.getValue() == 127) {
+   useShader[cc.getCC()-32] = !useShader[cc.getCC()-32];
+  }
+
+  // Alternative // Use Shader ON when pressed OFF when released
+  //if((cc.getCC() >= 32 && cc.getCC() <= 39)) {
+  // useShader[cc.getCC()-32] = cc.getValue() == 127;
+  //}
+
+  // Use Random Press twice to toggle
+  if((cc.getCC() >= 64 && cc.getCC() <= 71) && cc.getValue() == 127) {
+   useRandom[cc.getCC()-64] = !useRandom[cc.getCC()-64];
+  }
+
+  // All Random/glitch ON
+  if(cc.getCC() == 46) {
+    for(int i=0; i<useRandom.length; i++) {
+      useRandom[i] = true;
     }
   }
+  
+  // Set all filters to either ON or OFF
+  if(cc.getCC() == 58 || cc.getCC() == 59) {
+    for(int i=0; i<useRandom.length; i++) {
+      useShader[i] = cc.getCC() == 58;
+    }
+  }
+
+
 }
