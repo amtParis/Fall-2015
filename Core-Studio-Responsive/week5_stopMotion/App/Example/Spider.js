@@ -8,6 +8,8 @@ var Spider = function (x,y,ctx,json,image){
     this.json = json;
     this.image = image;
     this.counter = 0;
+
+    this.speed = Math.random()*4+1;
 }
 
 
@@ -42,6 +44,8 @@ Spider.prototype = {
          */
     },
     
-    move:function(){}
+    move:function(){
+        this.y-= this.speed;
+    }
     
 }
