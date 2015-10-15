@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Player</title>
+</head>
+
+<body>
+
+<canvas id="canvas"></canvas>
+
+
+<script type="text/javascript" src="Spiral/Spider.js"></script>
+<!-- 
+	BE CAREFULL
+    FOR HAVING THIS HTML PLAYER WORKING, YOU NEED TO CHANGE THIS LINE IN THE index.js code:
+    
+     if( request.readyState == request.DONE && request.status == 200 ) {
+     
+     to
+     
+     if( request.readyState == request.DONE && request.status == 0 ) {
+     
+     
+     
+     In spécific TOUCH script, you need to replace the touch action by some click action
+     
+-->
+<script type="text/javascript" src="Spiral/index.js"></script>
+
+</body>
+</html>

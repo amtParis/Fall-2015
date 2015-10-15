@@ -37,7 +37,7 @@ function setup(){
 	 for(var i=0;i<spiderNbr;i++){
          var posx = window.innerWidth/2;// Math.random()*w;
          var posy = window.innerHeight/2;// Math.random()*h;
-       // allSpiders[i] = new Spider(posx,posy,ctx,spiderTexture,spiderCoordinates);
+        // allSpiders[i] = new Spider(posx,posy,ctx,spiderTexture,spiderCoordinates);
     }
     
 
