@@ -17,7 +17,7 @@ function loadAssets(){
             spiderAnimationInfos = JSON.parse(request.responseText);
             spiderTexture = new Image();
             spiderTexture.src = assets[0];
-            spiderTexture.load = setup();
+            spiderTexture.onload = setup();
         }
     }
     request.open('GET', assets[1]);
@@ -32,7 +32,8 @@ function setup(){
         //allSpiders.push(mySpider);
     //}
     
-    canvas.addEventListener("touchend", function(e){
+    canvas.addEventListener(  "touchend",  function(e){  
+                            
        console.log("**********")
                             var randomXPosition = e.changedTouches[0].pageX;
                             var randomYPosition = e.changedTouches[0].pageY;
@@ -54,4 +55,4 @@ function draw(){
     requestAnimationFrame(draw);
 }
 loadAssets();
-setup();
+//setup();
