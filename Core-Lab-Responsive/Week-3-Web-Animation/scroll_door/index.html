@@ -121,15 +121,11 @@
 			$('*[data-type="background"]').each(function(){
 		        
 		        var $bgobj = $(this); // assigning the object
-		        var $element = $(this);
-        		var height = $element.height();
-        		var velocity = $bgobj.data('speed');
-		        var pos = $window.scrollTop();
-		        var backgroundPos = $element.css('backgroundPosition').split(" ");
-		        var xPos = "0px ";//backgroundPos[0];
-		        var coords = xPos + Math.round((height - pos) * velocity) + 'px';
-
-        		$bgobj.css({ backgroundPosition: coords });
+		        var yPos = -($window.scrollTop() / $bgobj.data('speed'));
+		        var coords = '50% '+ yPos + 'px';
+		        
+		        // Move the background
+		        $bgobj.css({ backgroundPosition: coords });
 		    
 		    });
 

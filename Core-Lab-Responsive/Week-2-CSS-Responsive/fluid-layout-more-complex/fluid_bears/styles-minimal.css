@@ -1,0 +1,98 @@
+*{
+	box-sizing: border-box;
+}
+
+/* Resets */
+html, body, div, ul, li, p, h1{
+	margin: 0;
+	padding: 0;
+}
+
+/*  --------------- Main Structure */
+html {
+    height: 100%; 
+}
+
+body {
+    margin: 0 auto; 
+    height: 100%; 
+}
+
+/* --------------- Columns */
+.col{ 
+	float: left;
+	width: 33.33%;
+}
+
+/* --------------- Sticky footer styles */
+#page{
+	display: table;
+	height: 100%;
+}
+
+header{
+	display: table-row;
+}
+
+#main-content{
+	display: table-row;
+	height: auto;
+}
+
+footer {
+    display: table-row;  
+    min-height: 1px;
+    width: 100%;
+    background-color: #ededed;
+}
+
+/* --------------- Header */
+header{
+	text-align: center;
+}
+
+/* --------------- Top Navigation  */
+#top-nav{
+	margin: 0px 0 30px 0;
+	padding: 20px 0;
+}
+
+#top-nav ul{
+	list-style-type: none;
+}
+
+#top-nav li{
+	display: inline-block;
+	margin-left: 30px;
+}
+
+#top-nav li:first-child{
+	margin-left: 0px;
+}
+
+/* --------------- Banner Image  */
+#main-image{
+	background-image: url('images/bear_banner.jpg');
+	background-position: center -50px;
+	background-repeat: no-repeat;
+	height: 250px;
+}
+
+/* --------------- Footer  */
+footer p{
+	padding: 20px 0;
+	width: 100%;
+	background-color: #ededed;
+	text-align: center;
+}
+
+
+/* --------------- Entries  */
+.entry{
+	padding: 0 20px;
+}
+
+
+
+
+

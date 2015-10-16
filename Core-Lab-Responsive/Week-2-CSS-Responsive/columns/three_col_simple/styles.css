@@ -1,0 +1,112 @@
+*{
+	box-sizing: border-box;
+}
+
+@font-face{
+	font-family: Raleway;
+	src: url('fonts/Raleway-Regular.ttf');
+}
+
+@font-face{
+	font-family: Raleway;
+	src: url('fonts/Raleway-Light.ttf');
+	font-weight: lighter;
+}
+
+@font-face{
+	font-family: Raleway;
+	src: url('fonts/Raleway-Medium.ttf');
+	font-weight: bold;
+}
+
+/*-------------------------------- Border, Margins and Padding */
+body{
+	padding: 20px;
+	border: 1px dotted gray;
+	/*min-width: 960px;*/
+}
+
+#main-content{
+	/*width: 960px;*/
+	width: 100%;
+	margin: 0 auto;
+	border-bottom: 1px solid lightgray;
+}
+
+footer{
+	margin-top: 5px;
+}
+
+
+header h1{
+	margin: 0;
+	padding: 5px;
+	background-color: #ededed;
+	
+}
+
+article h3, article h2{
+	margin: 5px 0;
+	padding: 0;
+}
+
+article p{
+	margin: 10px 0;
+}
+
+.row{
+	margin: 20px 0;
+}
+/*-------------------------------- Image Styles */
+img{
+	border-radius: 16px;
+}
+
+/*-------------------------------- Font Styles */
+body{
+	font-size: 100%;
+	font-family: Raleway,Arial, sans-serif;
+	color: gray;
+}
+
+header h1{
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: .15em;
+	text-align: center;
+	color: #000;
+}
+
+article h2{
+	font-size: 1.2em;
+}
+
+article h3{
+	font-weight: normal;
+	font-size: 1em;
+}
+
+article p{
+	font-size: .9em;
+	line-height: 1.5em;
+}
+
+footer{
+	font-size: .8em;
+}
+
+
+/*-------------------------------- Column Styles */
+.row{
+	overflow: auto;
+}
+
+.col{
+	float: left;
+	width: 33.33%;
+	padding: 0 10px;
+}
+
+.col img{
+	width: 100%;
+}
