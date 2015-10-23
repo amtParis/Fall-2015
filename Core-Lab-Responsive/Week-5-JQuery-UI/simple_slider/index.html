@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JQuery UI Slider</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="some project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+		  <script>
+  			$(function() {
+    			$( "#slider" ).slider(
+    				{
+    					value: 100,
+    					min: 0,
+    					max: 200,
+    					slide: function(evt,elem){
+    						$("#slider-val").text(elem.value);
+    					}
+    				}
+    			);
+    			
+    			var value = $( "#slider" ).slider("value");
+    			$("#slider-val").text(value);
+  			});
+  		</script>
+
+  		<style>
+  			#slider{
+  				width: 200px;
+  				float: left;
+  				margin: 0 20px;
+  			}
+  		</style>
+	</head>
+	<body>
+		<div id="slider"></div>
+		<p id="slider-val"></p>
+	</body>
+</html>
