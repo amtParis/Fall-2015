@@ -35,11 +35,15 @@ body, div, p{
 	width: 100px;
 	height: 100px;
 	background-color: red;
+	opacity: 0;
+	transition: opacity 1s;
 }
 
-#part-1.in-view{
-	animation: moveMe 2s ease-in-out 1s 4 alternate;
-	animation-fill-mode: both;
+#part-1.in-view p{
+	/*animation: moveMe 2s ease-in-out 1s 4 alternate;
+	animation-fill-mode: both;*/
+	opacity: 1;
+
 }
 
 #part-2.in-view{
