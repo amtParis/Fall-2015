@@ -9,5 +9,5 @@ $fileData = base64_decode($img);
 $id = uniqid();
 $fileName = $id.".png";
 file_put_contents($fileName, $fileData);
-
+echo $fileName;
 ?>

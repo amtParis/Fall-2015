@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Turn On LED via Web</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="some project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+		<style>
+			body{ text-align: center;}
+			#led{
+				margin-top: 50px;
+				border: none;
+				padding: 20px;
+				background-color: black;
+				color: white;
+			}
+			#led.button-on{
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="led">OFF</button>
+		<script>
+			var ledState = 0;
+
+			$("#led").click(function(){
+				
+				if(ledState==0){
+					ledState = 1;
+					$(this).html("ON");
+					$(this).addClass("button-on");
+				}else{
+					ledState = 0;
+					$(this).html("OFF");
+					$(this).removeClass("button-on");
+				}
+				var request;
+				var dataToSend = "state="+ledState;
+				request = $.ajax({
+					type: "POST",
+					url:"changeLED.php",
+					data:dataToSend
+
+				});
+
+				request.done(function (response, textStatus, jqXHR){
+					console.log( "ok " + response);
+				});
+			});
+			
+		</script>
+	</body>
+</html>

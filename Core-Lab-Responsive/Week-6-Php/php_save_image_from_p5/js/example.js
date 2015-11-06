@@ -1,3 +1,6 @@
+$("#saveMe").click(function(){
+	saveMyFile();
+});
 // The statements in the setup() function 
 // execute once when the program begins
 function setup() {
@@ -15,29 +18,36 @@ function setup() {
 function draw() {
   stroke(0);
   background(255,0,0);
-  ellipse(20,20,40,40);
+  ellipse(mouseX,mouseY,40,40);
 
 } 
+
+function mouseMoved() {
+  
+}
 
 function saveMyFile(){
 	var canvas = document.getElementsByTagName("canvas");
 	var myCanvas = canvas[0];
 
+	// converts into an image
 	var dataURL = myCanvas.toDataURL();
 
+	// add image as data to send
 	var dataToSend = "image=" + dataURL;
 
-			var request = $.ajax({
-   				url: "saveDataUrl.php",
-   				type: "post",
-   				data: dataToSend
-			});
+	var request = $.ajax({
+		url: "saveDataUrl.php",
+		type: "post",
+		data: dataToSend
+	});
 
-			request.done(function (response, textStatus, jqXHR){
-				console.log("Hooray, it worked! " + response);
-			});
+	request.done(function (response, textStatus, jqXHR){
+		console.log("Hooray, it worked! " + response);
+		$("body").append("Saved image! <a href='"+response+"'>View Image</a>");
+	});
 
-			request.fail(function (jqXHR, textStatus, errorThrown){
-				console.error( "There was an error " + textStatus, errorThrown);
-			});
+	request.fail(function (jqXHR, textStatus, errorThrown){
+		console.error( "There was an error " + textStatus, errorThrown);
+	});
 }
