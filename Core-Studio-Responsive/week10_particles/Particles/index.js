@@ -1,53 +1,3 @@
-
-var Particle = function( x, y, radius ) {
-	this.init( x, y, radius );
-}
-
-Particle.prototype = {
-
-	init: function( x, y, radius ) {
-
-		this.alive = true;
-
-		this.radius = radius || 10;
-		this.wander = 0.15;
-		this.theta = Math.random()*Math.PI*2;
-		
-		this.drag = 0.92;
-		this.color = '#fff';
-
-		this.x = x || 0.0;
-		this.y = y || 0.0;
-
-		this.vx = 0.0;
-		this.vy = 0.0;
-	},
-
-	move: function() {
-
-		this.x += this.vx;
-		this.y += this.vy;
-
-		this.vx *= this.drag;
-		this.vy *= this.drag;
-
-		this.theta += randomFloat( -0.5, 0.5 ) * this.wander;
-		this.vx += Math.sin( this.theta ) * 0.1;
-		this.vy += Math.cos( this.theta ) * 0.1;
-
-		this.radius *= 0.96;
-		this.alive = this.radius > 0.5;
-	},
-
-	draw: function( ctx ) {
-
-		ctx.beginPath();
-		ctx.arc( this.x, this.y, this.radius, 0, Math.PI*2 );
-		ctx.fillStyle = this.color;
-		ctx.fill();
-	}
-};
-
 // ----------------------------------------
 // Example
 // ----------------------------------------
@@ -73,6 +23,9 @@ var then = Date.now();
 var interval = 1000/fps;
 var delta;
 
+//Audio
+var allAudios = [];
+
 
 function setup(){
 
@@ -86,9 +39,22 @@ function setup(){
 		spawn( x, y );
 	}
 
-	
-
 	document.addEventListener("touchmove", onMouseMove);
+    
+    //load audio
+    var audio;
+    for(var i=1;i<=9;i++){
+        audio= document.createElement('audio');
+        audio.src = 'data/pop/'+i+'.mp3';
+        audio.preload = true;
+        audio.loop = false;
+        audio.load();
+        document.body.appendChild(audio);
+        allAudios.push(audio);
+    }
+    //allAudios[0].play();
+    
+    
 	draw();
 }
 
@@ -100,8 +66,13 @@ function update(){
 
 		particle = particles[i];
 
-		if ( particle.alive ) particle.move();
-		else pool.push( particles.splice( i, 1 )[0] );
+        if ( particle.alive ){ particle.move();
+       
+        }else{
+            //play a sound
+        
+            pool.push( particles.splice( i, 1 )[0] );
+        }
 	}
 
 }
@@ -167,7 +138,15 @@ function spawn(x,y){
 		particle.vy = Math.cos( theta ) * force;
 
 		particles.push( particle );
+    
+    var randomIndex = Math.floor(Math.random()*allAudios.length);
+    if(allAudios[randomIndex] !=undefined){
+        allAudios[randomIndex].play();
+    }
+    
+    
 
+    
 }
 
 function onMouseMove(e){
@@ -199,3 +178,62 @@ function randomArray(array)
 }
 
 setup();
+
+
+
+
+
+
+
+
+// PROTOTYPE
+
+
+var Particle = function( x, y, radius ) {
+    this.init( x, y, radius );
+}
+
+Particle.prototype = {
+    
+init: function( x, y, radius ) {
+    
+    this.alive = true;
+    
+    this.radius = radius || 10;
+    this.wander = 0.15;
+    this.theta = Math.random()*Math.PI*2;
+    
+    this.drag = 0.92;
+    this.color = '#fff';
+    
+    this.x = x || 0.0;
+    this.y = y || 0.0;
+    
+    this.vx = 0.0;
+    this.vy = 0.0;
+},
+    
+move: function() {
+    
+    this.x += this.vx;
+    this.y += this.vy;
+    
+    this.vx *= this.drag;
+    this.vy *= this.drag;
+    
+    this.theta += randomFloat( -0.5, 0.5 ) * this.wander;
+    this.vx += Math.sin( this.theta ) * 0.1;
+    this.vy += Math.cos( this.theta ) * 0.1;
+    
+    this.radius *= 0.96;
+    this.alive = this.radius > 0.5;
+},
+    
+draw: function( ctx ) {
+    
+    ctx.beginPath();
+    ctx.arc( this.x, this.y, this.radius, 0, Math.PI*2 );
+    ctx.fillStyle = this.color;
+    ctx.fill();
+}
+};
