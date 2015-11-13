@@ -6,7 +6,7 @@ canvas.width = width =  window.innerWidth;
 canvas.height = height = window.innerHeight;
 var ctx = canvas.getContext('2d');
 
-var word = "hello amt";
+var word = "hello pauline";
 var decoder = new Decoder();
 
 
