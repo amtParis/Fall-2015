@@ -1,0 +1,28 @@
+{
+    "words":[
+                {
+                    "image":"data/url.jpg",
+                    "sound":"sound/firstSound.mp3"
+                },
+             {
+             "image":"data/url.jpg",
+             "sound":"sound/firstSound.mp3"
+             },
+             {
+             "image":"data/url.jpg",
+             "sound":"sound/firstSound.mp3"
+             },
+             {
+             "image":"data/url.jpg",
+             "sound":"sound/firstSound.mp3"
+             },
+             {
+             "image":"data/url.jpg",
+             "sound":"sound/firstSound.mp3"
+             },
+             {
+             "image":"data/url.jpg",
+             "sound":"sound/firstSound.mp3"
+             }
+            ]
+}
