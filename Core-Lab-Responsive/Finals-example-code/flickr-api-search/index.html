@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Flickr API Test</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="some project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	</head>
+	<body>
+		<script>
+			var tags = "dog,snow"; // key words to search for
+			var api_key = ""; // ADD YOUR API KEY HERE inside quotes (https://www.flickr.com/services/api/misc.api_keys.html)
+			var per_page = 4; // total to get at a time
+
+			// create the request url
+			// see https://www.flickr.com/services/api/flickr.photos.search.html for details
+			var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&per_page="+per_page+"&tags=" + tags + "&api_key=" + api_key;
+			
+			console.log(url);
+			
+			var request = $.ajax({
+				type: "get",
+	    		url: url,
+				data: ""
+			});
+  
+			// when results come back, loop through each and construct the url of the image with the info provided
+			request.done(function( msg ) {
+
+				for (var i = 0; i < msg.photos.photo.length; i++) { 
+				   	
+				   	var farm = msg.photos.photo[i].farm;
+	    			var server = msg.photos.photo[i].server;
+	    			var id = msg.photos.photo[i].id;
+	    			var secret = msg.photos.photo[i].secret;
+	    			
+	    			// see: https://www.flickr.com/services/api/misc.urls.html for details
+	    			var img_url = "https://farm"+farm+".staticflickr.com/"+server+"/"+id+"_"+secret+".jpg";
+	    		
+	    			console.log(img_url);
+	    			
+	    			// add image to body of page
+	    			$("body").append('<img src="'+img_url+'">');
+	    		}
+    
+  		});
+ 
+
+  		request.fail(function (error){
+   			console.error("Error: "+error);
+  		});
+		</script>
+	</body>
+</html>

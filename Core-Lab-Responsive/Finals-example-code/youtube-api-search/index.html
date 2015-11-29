@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>You Tube Loader</title>
+		<meta charset="utf-8">
+	    <meta name="description" content="some project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		
+	</head>
+	<body>
+		<div>
+			<iframe id="video" title="YouTube video player" class="youtube-player" type="text/html" width="640" height="390" src="" frameborder="0" allowFullScreen></iframe>
+		</div>
+		
+		<script type="text/javascript">
+			var keyword = "puppy";
+			var maxResults = 1;	// get just one video
+			var api_key = ""; // ADD YOUR API KEY HERE in quotes
+  			var dataToSend = "part=snippet&maxResults="+maxResults+"&q="+keyword+"&type=video&key="+api_key;
+			
+			var request = $.ajax({
+				type: "get",
+				url: "https://www.googleapis.com/youtube/v3/search",
+				data: dataToSend
+			});
+  
+			request.done(function( msg ) {
+
+				// this gets the first video returned
+				var youtubeId = msg.items[0].id.videoId;
+				var url = "http://www.youtube.com/embed/"+ youtubeId +"?autoplay=1";
+				$("#video").attr('src',url); 				
+
+			});
+ 
+
+			request.fail(function (error){
+				console.error("Error: "+error);
+			});
+		</script>
+	</body>
+</html>
