@@ -49,7 +49,7 @@ VRRoom.prototype = {
 
 
 
-			this.camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 100 );
+			this.camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
 			this.camera.position.z = 0.1;//0.1;
 			//this.camera.target = new THREE.Object3D();
 
@@ -78,7 +78,7 @@ VRRoom.prototype = {
 
 			//Wall3
 			var wall3 = this.all3DLayers[2];
-				wall3.rotation.y = 90*Math.PI/180;
+			wall3.rotation.y = 90*Math.PI/180;
 			wall3.position.x = -this.halfSize;
 
 			//Wall4
@@ -133,7 +133,7 @@ VRRoom.prototype = {
 		}
 
 	window.addEventListener( 'click', this.onLayerClick.bind(this), true );
-  window.addEventListener( 'touchstart', this.onLayerClick.bind(this), true );
+    window.addEventListener( 'touchstart', this.onLayerClick.bind(this), true );
 	//this.transform( this.targets.helix, 2000 );
 
 	},
@@ -141,8 +141,36 @@ VRRoom.prototype = {
 	onLayerClick:function(e){
 		console.log("click")
 
+		var heighObject = {"y":1240,};
+
+		//change the height of our walls
+
+		//change the height of 1 wall
+		//Wall1
+		var wall1 = this.all3DLayers[0];
+		wall1.position.y =0;
+		console.log(wall1);
+		console.log(wall1.elementL.firstChild.height);
+
+		var myTween = new TWEEN.Tween(heighObject)
+		.to({y:2000},3000)
+		.easing( TWEEN.Easing.Bounce.Out )
+		.onUpdate(function(){wall1.elementL.firstChild.height = heighObject.y})
+		.start();
+
+		var myTween2 = new TWEEN.Tween(wall1.position)
+		.to({y:760},3000)
+		.easing( TWEEN.Easing.Bounce.Out )
+		.start();
+
+
 
 	},
+
+
+
+
+
 	setOrientationControls:function(e){
 		//console.log(e);
 		 if (!e.alpha) {
